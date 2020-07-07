@@ -1,0 +1,24 @@
+server:
+  port: 9001
+spring:
+  datasource:
+    url: jdbc:sqlserver://codc-intranetbd;databaseName=oauth2_database
+    username: sa
+    password: password
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+    initialization-mode: never
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+    hibernate:
+      default_schema: dbo
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+      ddl-auto: validate
+
+
+check-user-scopes: true
